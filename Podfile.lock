@@ -1,0 +1,15 @@
+PODS:
+  - POSInputStreamLibrary (2.3.4)
+  - Safe (1.2.0)
+
+DEPENDENCIES:
+  - POSInputStreamLibrary (~> 2.3)
+  - Safe (~> 1.2)
+
+SPEC CHECKSUMS:
+  POSInputStreamLibrary: 2375428010f5c3ac5251e2a3a85cda3feec794b2
+  Safe: c9d2d01a96958fc62ee7789b478c3261197c101d
+
+PODFILE CHECKSUM: 274de31b9b8128c238ae00ca428c4ee0ca4920c9
+
+COCOAPODS: 1.0.1

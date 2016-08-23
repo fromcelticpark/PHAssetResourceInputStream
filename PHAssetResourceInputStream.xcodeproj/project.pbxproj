@@ -9,7 +9,25 @@
 /* Begin PBXBuildFile section */
 		533DA3D81D6C6FE100EA9D75 /* PHAssetResourceInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 533DA3D71D6C6FE100EA9D75 /* PHAssetResourceInputStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		533DA3DF1D6C6FE200EA9D75 /* PHAssetResourceInputStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533DA3D41D6C6FE100EA9D75 /* PHAssetResourceInputStream.framework */; };
-		533DA3E41D6C6FE200EA9D75 /* PHAssetResourceInputStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA3E31D6C6FE200EA9D75 /* PHAssetResourceInputStreamTests.swift */; };
+		533DA3FD1D6C7A4A00EA9D75 /* DataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA3FC1D6C7A4A00EA9D75 /* DataGenerator.swift */; };
+		533DA3FF1D6C7A6100EA9D75 /* DataGeneratorWithOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA3FE1D6C7A6100EA9D75 /* DataGeneratorWithOffset.swift */; };
+		533DA4011D6C7A7400EA9D75 /* BytesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA4001D6C7A7400EA9D75 /* BytesGenerator.swift */; };
+		533DA4031D6C7A8900EA9D75 /* DataGeneratorFromDataProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA4021D6C7A8900EA9D75 /* DataGeneratorFromDataProducer.swift */; };
+		533DA4051D6C7A9C00EA9D75 /* PHAssetResourceInputStreamDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA4041D6C7A9C00EA9D75 /* PHAssetResourceInputStreamDataSource.swift */; };
+		533DA4071D6C7AB800EA9D75 /* DataProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA4061D6C7AB800EA9D75 /* DataProducer.swift */; };
+		533DA4091D6C7AE000EA9D75 /* PHAssetResourceDataProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA4081D6C7AE000EA9D75 /* PHAssetResourceDataProducer.swift */; };
+		533DA40B1D6C7AF400EA9D75 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA40A1D6C7AF400EA9D75 /* Cancellable.swift */; };
+		533DA40D1D6C7B0700EA9D75 /* NSInputStream+PHAssetResourceInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA40C1D6C7B0700EA9D75 /* NSInputStream+PHAssetResourceInputStream.swift */; };
+		5394A46C1D6CF68C00417165 /* NSOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394A46B1D6CF68C00417165 /* NSOperationQueue.swift */; };
+		5394A46E1D6CF6E100417165 /* MockDataProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394A46D1D6CF6E100417165 /* MockDataProducer.swift */; };
+		53E4B1861D6CECBF006C83E2 /* MockDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B1851D6CECBF006C83E2 /* MockDataGenerator.swift */; };
+		53E4B1881D6CED04006C83E2 /* DataGeneratorWithOffsetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B1871D6CED04006C83E2 /* DataGeneratorWithOffsetTests.swift */; };
+		53E4B18A1D6CED84006C83E2 /* NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B1891D6CED84006C83E2 /* NSData.swift */; };
+		53E4B18C1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B18B1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift */; };
+		53E4B18E1D6CEE7A006C83E2 /* BytesGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B18D1D6CEE7A006C83E2 /* BytesGeneratorTests.swift */; };
+		53E4B1901D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B18F1D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift */; };
+		651CE12F51C4A78A9CB96449 /* Pods_PHAssetResourceInputStreamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE024AFAD82E153702B73AA7 /* Pods_PHAssetResourceInputStreamTests.framework */; };
+		6B8E9C2E0D566B3A9928D6F8 /* Pods_PHAssetResourceInputStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D81BADE3A2CA19E25218FF /* Pods_PHAssetResourceInputStream.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +41,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18BFE0039B2474B51559E1B0 /* Pods-PHAssetResourceInputStream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PHAssetResourceInputStream.release.xcconfig"; path = "Pods/Target Support Files/Pods-PHAssetResourceInputStream/Pods-PHAssetResourceInputStream.release.xcconfig"; sourceTree = "<group>"; };
+		3A338066946160DF605BC2EC /* Pods-PHAssetResourceInputStream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PHAssetResourceInputStream.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PHAssetResourceInputStream/Pods-PHAssetResourceInputStream.debug.xcconfig"; sourceTree = "<group>"; };
 		533DA3D41D6C6FE100EA9D75 /* PHAssetResourceInputStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PHAssetResourceInputStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		533DA3D71D6C6FE100EA9D75 /* PHAssetResourceInputStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHAssetResourceInputStream.h; sourceTree = "<group>"; };
 		533DA3D91D6C6FE200EA9D75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		533DA3DE1D6C6FE200EA9D75 /* PHAssetResourceInputStreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PHAssetResourceInputStreamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		533DA3E31D6C6FE200EA9D75 /* PHAssetResourceInputStreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAssetResourceInputStreamTests.swift; sourceTree = "<group>"; };
 		533DA3E51D6C6FE200EA9D75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		533DA3FC1D6C7A4A00EA9D75 /* DataGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGenerator.swift; sourceTree = "<group>"; };
+		533DA3FE1D6C7A6100EA9D75 /* DataGeneratorWithOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGeneratorWithOffset.swift; sourceTree = "<group>"; };
+		533DA4001D6C7A7400EA9D75 /* BytesGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesGenerator.swift; sourceTree = "<group>"; };
+		533DA4021D6C7A8900EA9D75 /* DataGeneratorFromDataProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGeneratorFromDataProducer.swift; sourceTree = "<group>"; };
+		533DA4041D6C7A9C00EA9D75 /* PHAssetResourceInputStreamDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssetResourceInputStreamDataSource.swift; sourceTree = "<group>"; };
+		533DA4061D6C7AB800EA9D75 /* DataProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProducer.swift; sourceTree = "<group>"; };
+		533DA4081D6C7AE000EA9D75 /* PHAssetResourceDataProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssetResourceDataProducer.swift; sourceTree = "<group>"; };
+		533DA40A1D6C7AF400EA9D75 /* Cancellable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
+		533DA40C1D6C7B0700EA9D75 /* NSInputStream+PHAssetResourceInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSInputStream+PHAssetResourceInputStream.swift"; sourceTree = "<group>"; };
+		5394A46B1D6CF68C00417165 /* NSOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSOperationQueue.swift; sourceTree = "<group>"; };
+		5394A46D1D6CF6E100417165 /* MockDataProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDataProducer.swift; sourceTree = "<group>"; };
+		53E4B1851D6CECBF006C83E2 /* MockDataGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDataGenerator.swift; sourceTree = "<group>"; };
+		53E4B1871D6CED04006C83E2 /* DataGeneratorWithOffsetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGeneratorWithOffsetTests.swift; sourceTree = "<group>"; };
+		53E4B1891D6CED84006C83E2 /* NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSData.swift; sourceTree = "<group>"; };
+		53E4B18B1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataGenerator+Helpers.swift"; sourceTree = "<group>"; };
+		53E4B18D1D6CEE7A006C83E2 /* BytesGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesGeneratorTests.swift; sourceTree = "<group>"; };
+		53E4B18F1D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGeneratorFromDataProducerTests.swift; sourceTree = "<group>"; };
+		B2D81BADE3A2CA19E25218FF /* Pods_PHAssetResourceInputStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PHAssetResourceInputStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD59CEA0E786B2D03C2861D0 /* Pods-PHAssetResourceInputStreamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PHAssetResourceInputStreamTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PHAssetResourceInputStreamTests/Pods-PHAssetResourceInputStreamTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D28AEB830DE30B4E42A6395B /* Pods-PHAssetResourceInputStreamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PHAssetResourceInputStreamTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PHAssetResourceInputStreamTests/Pods-PHAssetResourceInputStreamTests.release.xcconfig"; sourceTree = "<group>"; };
+		FE024AFAD82E153702B73AA7 /* Pods_PHAssetResourceInputStreamTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PHAssetResourceInputStreamTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B8E9C2E0D566B3A9928D6F8 /* Pods_PHAssetResourceInputStream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,18 +85,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				533DA3DF1D6C6FE200EA9D75 /* PHAssetResourceInputStream.framework in Frameworks */,
+				651CE12F51C4A78A9CB96449 /* Pods_PHAssetResourceInputStreamTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		058AD6B1399ADB4D7B390B3B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3A338066946160DF605BC2EC /* Pods-PHAssetResourceInputStream.debug.xcconfig */,
+				18BFE0039B2474B51559E1B0 /* Pods-PHAssetResourceInputStream.release.xcconfig */,
+				BD59CEA0E786B2D03C2861D0 /* Pods-PHAssetResourceInputStreamTests.debug.xcconfig */,
+				D28AEB830DE30B4E42A6395B /* Pods-PHAssetResourceInputStreamTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		533DA3CA1D6C6FE100EA9D75 = {
 			isa = PBXGroup;
 			children = (
 				533DA3D61D6C6FE100EA9D75 /* PHAssetResourceInputStream */,
 				533DA3E21D6C6FE200EA9D75 /* PHAssetResourceInputStreamTests */,
 				533DA3D51D6C6FE100EA9D75 /* Products */,
+				058AD6B1399ADB4D7B390B3B /* Pods */,
+				DF107938C10AB629DADFC413 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +126,15 @@
 		533DA3D61D6C6FE100EA9D75 /* PHAssetResourceInputStream */ = {
 			isa = PBXGroup;
 			children = (
+				533DA40A1D6C7AF400EA9D75 /* Cancellable.swift */,
+				533DA4061D6C7AB800EA9D75 /* DataProducer.swift */,
+				533DA3FC1D6C7A4A00EA9D75 /* DataGenerator.swift */,
+				533DA4001D6C7A7400EA9D75 /* BytesGenerator.swift */,
+				533DA3FE1D6C7A6100EA9D75 /* DataGeneratorWithOffset.swift */,
+				533DA4081D6C7AE000EA9D75 /* PHAssetResourceDataProducer.swift */,
+				533DA4021D6C7A8900EA9D75 /* DataGeneratorFromDataProducer.swift */,
+				533DA4041D6C7A9C00EA9D75 /* PHAssetResourceInputStreamDataSource.swift */,
+				533DA40C1D6C7B0700EA9D75 /* NSInputStream+PHAssetResourceInputStream.swift */,
 				533DA3D71D6C6FE100EA9D75 /* PHAssetResourceInputStream.h */,
 				533DA3D91D6C6FE200EA9D75 /* Info.plist */,
 			);
@@ -80,10 +144,34 @@
 		533DA3E21D6C6FE200EA9D75 /* PHAssetResourceInputStreamTests */ = {
 			isa = PBXGroup;
 			children = (
-				533DA3E31D6C6FE200EA9D75 /* PHAssetResourceInputStreamTests.swift */,
+				53E4B1841D6CECAE006C83E2 /* Helpers */,
+				53E4B1871D6CED04006C83E2 /* DataGeneratorWithOffsetTests.swift */,
+				53E4B18D1D6CEE7A006C83E2 /* BytesGeneratorTests.swift */,
+				53E4B18F1D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift */,
 				533DA3E51D6C6FE200EA9D75 /* Info.plist */,
 			);
 			path = PHAssetResourceInputStreamTests;
+			sourceTree = "<group>";
+		};
+		53E4B1841D6CECAE006C83E2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				53E4B1851D6CECBF006C83E2 /* MockDataGenerator.swift */,
+				5394A46D1D6CF6E100417165 /* MockDataProducer.swift */,
+				53E4B1891D6CED84006C83E2 /* NSData.swift */,
+				5394A46B1D6CF68C00417165 /* NSOperationQueue.swift */,
+				53E4B18B1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		DF107938C10AB629DADFC413 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2D81BADE3A2CA19E25218FF /* Pods_PHAssetResourceInputStream.framework */,
+				FE024AFAD82E153702B73AA7 /* Pods_PHAssetResourceInputStreamTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,10 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 533DA3E81D6C6FE200EA9D75 /* Build configuration list for PBXNativeTarget "PHAssetResourceInputStream" */;
 			buildPhases = (
+				76406E5C0B6D3F399F033849 /* [CP] Check Pods Manifest.lock */,
 				533DA3CF1D6C6FE100EA9D75 /* Sources */,
 				533DA3D01D6C6FE100EA9D75 /* Frameworks */,
 				533DA3D11D6C6FE100EA9D75 /* Headers */,
 				533DA3D21D6C6FE100EA9D75 /* Resources */,
+				DF8E4FA44C5289ABC30CD658 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,9 +212,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 533DA3EB1D6C6FE200EA9D75 /* Build configuration list for PBXNativeTarget "PHAssetResourceInputStreamTests" */;
 			buildPhases = (
+				B3E47B37B89526D511E8CB00 /* [CP] Check Pods Manifest.lock */,
 				533DA3DA1D6C6FE200EA9D75 /* Sources */,
 				533DA3DB1D6C6FE200EA9D75 /* Frameworks */,
 				533DA3DC1D6C6FE200EA9D75 /* Resources */,
+				BC7C648E622ADE918E4D66CC /* [CP] Embed Pods Frameworks */,
+				C52AFD6375DC927C683DD061 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,11 +282,98 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		76406E5C0B6D3F399F033849 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B3E47B37B89526D511E8CB00 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BC7C648E622ADE918E4D66CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PHAssetResourceInputStreamTests/Pods-PHAssetResourceInputStreamTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C52AFD6375DC927C683DD061 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PHAssetResourceInputStreamTests/Pods-PHAssetResourceInputStreamTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF8E4FA44C5289ABC30CD658 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PHAssetResourceInputStream/Pods-PHAssetResourceInputStream-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		533DA3CF1D6C6FE100EA9D75 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				533DA3FF1D6C7A6100EA9D75 /* DataGeneratorWithOffset.swift in Sources */,
+				533DA4071D6C7AB800EA9D75 /* DataProducer.swift in Sources */,
+				533DA40B1D6C7AF400EA9D75 /* Cancellable.swift in Sources */,
+				533DA4031D6C7A8900EA9D75 /* DataGeneratorFromDataProducer.swift in Sources */,
+				533DA4011D6C7A7400EA9D75 /* BytesGenerator.swift in Sources */,
+				533DA3FD1D6C7A4A00EA9D75 /* DataGenerator.swift in Sources */,
+				533DA4091D6C7AE000EA9D75 /* PHAssetResourceDataProducer.swift in Sources */,
+				533DA4051D6C7A9C00EA9D75 /* PHAssetResourceInputStreamDataSource.swift in Sources */,
+				533DA40D1D6C7B0700EA9D75 /* NSInputStream+PHAssetResourceInputStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +381,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				533DA3E41D6C6FE200EA9D75 /* PHAssetResourceInputStreamTests.swift in Sources */,
+				53E4B1881D6CED04006C83E2 /* DataGeneratorWithOffsetTests.swift in Sources */,
+				5394A46E1D6CF6E100417165 /* MockDataProducer.swift in Sources */,
+				5394A46C1D6CF68C00417165 /* NSOperationQueue.swift in Sources */,
+				53E4B18A1D6CED84006C83E2 /* NSData.swift in Sources */,
+				53E4B1861D6CECBF006C83E2 /* MockDataGenerator.swift in Sources */,
+				53E4B1901D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift in Sources */,
+				53E4B18E1D6CEE7A006C83E2 /* BytesGeneratorTests.swift in Sources */,
+				53E4B18C1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,29 +496,36 @@
 		};
 		533DA3E91D6C6FE200EA9D75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A338066946160DF605BC2EC /* Pods-PHAssetResourceInputStream.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PHAssetResourceInputStream/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fromcelticpark.PHAssetResourceInputStream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		533DA3EA1D6C6FE200EA9D75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18BFE0039B2474B51559E1B0 /* Pods-PHAssetResourceInputStream.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PHAssetResourceInputStream/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fromcelticpark.PHAssetResourceInputStream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -341,6 +535,7 @@
 		};
 		533DA3EC1D6C6FE200EA9D75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD59CEA0E786B2D03C2861D0 /* Pods-PHAssetResourceInputStreamTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PHAssetResourceInputStreamTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -351,6 +546,7 @@
 		};
 		533DA3ED1D6C6FE200EA9D75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D28AEB830DE30B4E42A6395B /* Pods-PHAssetResourceInputStreamTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PHAssetResourceInputStreamTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -378,6 +574,7 @@
 				533DA3EA1D6C6FE200EA9D75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		533DA3EB1D6C6FE200EA9D75 /* Build configuration list for PBXNativeTarget "PHAssetResourceInputStreamTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +583,7 @@
 				533DA3ED1D6C6FE200EA9D75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
