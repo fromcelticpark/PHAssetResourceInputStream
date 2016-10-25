@@ -1,27 +1,27 @@
 ![Version](https://img.shields.io/cocoapods/v/PHAssetResourceInputStream.svg?style=flat)
 ![Platform](https://img.shields.io/cocoapods/p/PHAssetResourceInputStream.svg?style=flat)
-![Swift](https://img.shields.io/badge/%20in-swift%202.3-orange.svg)
+![Swift](https://img.shields.io/badge/%20in-swift%203.0-orange.svg)
 
 
 ## Description
 
-**PHAssetResourceInputStream** is a library that adds `NSInputStream` support for assets from Photos Framework. It is build on the top of [POSInputStreamLibrary](https://github.com/pavelosipov/POSInputStreamLibrary) and it uses [bounded blocking queue](https://en.wikipedia.org/wiki/Producer–consumer_problem) under the hood to inverse the producer-like API of `PHAssetResourceManager` and makes it consumer-friendly.
+**PHAssetResourceInputStream** is a library that adds input stream support for assets from `Photos Framework`. It is build on the top of [POSInputStreamLibrary](https://github.com/pavelosipov/POSInputStreamLibrary) and it uses [bounded blocking queue](https://en.wikipedia.org/wiki/Producer–consumer_problem) under the hood to inverse the producer-like API of `PHAssetResourceManager` and makes it consumer-friendly.
 
 ## Example
 
 Creating a stream:
 
 ```swift
-let inputStream = NSInputStream.inputStreamWithAssetResource(assetResource)
+let inputStream = InputStream.inputStream(withAssetResource: assetResource)
 ```
 
 Setting an offset:
 
 ```swift
-inputStream.setProperty(100, forKey: NSStreamFileCurrentOffsetKey)
+inputStream.setProperty(100, forKey: .fileCurrentOffsetKey)
 ```
 
-Furthemore, the library provides a set of data structures that allow you to work with a data of `PHAssetResource` in a synchronous manner.
+Furthemore, the library provides a set of data structures that allows you to work with data of `PHAssetResource` in a synchronous manner.
 
 Bellow is the example of getting the size from a `PHAssetResource`:
 
@@ -44,7 +44,6 @@ do {
 - [-] Add an example project
 - [-] Add Travis CI support
 - [-] Add tests for `PHAssetResourceInputStreamDataSource`
-- [-] Update to `Swift 3.0`
 
 ## Installation
 
@@ -52,7 +51,7 @@ do {
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.0'
+platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
