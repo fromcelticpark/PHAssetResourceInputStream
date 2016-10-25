@@ -8,7 +8,6 @@
 
 import Foundation
 import Photos
-import Safe
 
 public final class DataGeneratorFromDataProducer: DataGenerator {
     private enum AssetData {
@@ -17,7 +16,7 @@ public final class DataGeneratorFromDataProducer: DataGenerator {
     }
 
     private let dataProducer: DataProducer
-    private let chunks = Chan<AssetData>()
+    private let queue = BoundedBlockingQueue<AssetData>()
     private var opened = false
     private var cancellable: Cancellable?
 
@@ -29,21 +28,21 @@ public final class DataGeneratorFromDataProducer: DataGenerator {
         cancellable?.cancel()
         if opened {
             // dispose of data added to chunks
-            while let _ = <-chunks {}
+            while let _ = queue.receive() {}
         }
     }
 
     private func open() {
         cancellable =
             dataProducer.requestData(
-                withCallback: { [chunks] data in
-                    chunks <- .Data(data)
+                withCallback: { [queue] data in
+                    queue.send(.Data(data))
                 },
-                completion: { [chunks] error in
+                completion: { [queue] error in
                     if let error = error {
-                        chunks <- .Error(error)
+                        queue.send(.Error(error))
                     }
-                    chunks.close()
+                    queue.close()
                 })
     }
 
@@ -53,7 +52,7 @@ public final class DataGeneratorFromDataProducer: DataGenerator {
             open()
         }
 
-        guard let assetData = <-chunks else {
+        guard let assetData = queue.receive() else {
             return nil
         }
 
