@@ -11,5 +11,4 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.frameworks = 'Foundation', 'Photos'
   s.dependency 'POSInputStreamLibrary', '~> 2.3'  
-  s.dependency 'Safe', '~> 1.2'
 end
