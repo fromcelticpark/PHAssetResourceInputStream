@@ -9,6 +9,7 @@
 import Foundation
 import Photos
 
+@available(iOS 9.0, *)
 public final class PHAssetResourceDataProducer: DataProducer {
     private let assetResource: PHAssetResource
 

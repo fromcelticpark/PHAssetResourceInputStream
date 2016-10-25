@@ -11,6 +11,7 @@ import Photos
 import POSInputStreamLibrary
 
 extension NSInputStream {
+    @available(iOS 9.0, *)
     public static func inputStreamWithAssetResource(assetResource: PHAssetResource) -> NSInputStream {
         let dataSource = PHAssetResourceInputStreamDataSource(assetResource: assetResource)
         let stream = POSBlobInputStream(dataSource: dataSource)

@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author = { 'Aleksandr Dvornikov' => 'fromcelticpark@gmail.com' }
   s.source = { :git => 'https://github.com/fromcelticpark/PHAssetResourceInputStream.git', :tag => s.version.to_s }
   s.source_files = 'PHAssetResourceInputStream/*.swift'
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '8.0'
   s.requires_arc = true
   s.frameworks = 'Foundation', 'Photos'
   s.dependency 'POSInputStreamLibrary', '~> 2.3'  

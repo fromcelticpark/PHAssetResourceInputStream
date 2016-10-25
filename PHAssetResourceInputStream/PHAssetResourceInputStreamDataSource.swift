@@ -10,6 +10,7 @@ import Foundation
 import Photos
 import POSInputStreamLibrary
 
+@available(iOS 9.0, *)
 @objc public final class PHAssetResourceInputStreamDataSource: NSObject, POSBlobInputStreamDataSource {
     private var readOffset: UInt64 = 0
     private var assetResource: PHAssetResource
@@ -93,6 +94,7 @@ import POSInputStreamLibrary
 
 }
 
+@available(iOS 9.0, *)
 private func bytesGeneratorForAssetResource(assetResource: PHAssetResource, fromOffset offset: UInt64 = 0) -> BytesGenerator {
     let dataProducer = PHAssetResourceDataProducer(assetResource: assetResource)
     var dataGenerator: DataGenerator = DataGeneratorFromDataProducer(dataProducer: dataProducer)
