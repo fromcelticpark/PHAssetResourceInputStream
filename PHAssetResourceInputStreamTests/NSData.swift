@@ -8,23 +8,23 @@
 
 import Foundation
 
-extension NSData {
-    static func dataWithRepeatedValue(value: UInt8, ofLength length: Int) -> NSData {
-        var bytes = [UInt8](count: length, repeatedValue: value)
-        return NSData.init(bytes: &bytes, length: length)
+extension Data {
+    static func dataWithRepeatedValue(_ value: UInt8, ofLength length: Int) -> Data {
+        var bytes = [UInt8](repeating: value, count: length)
+        return Data.init(bytes: UnsafePointer<UInt8>(&bytes), count: length)
     }
 
-    static func emptyDataOfLength(length: Int) -> NSData {
+    static func emptyDataOfLength(_ length: Int) -> Data {
         return dataWithRepeatedValue(0, ofLength: length)
     }
 
-    static func chunksOfEmptyData(count count: Int, length: Int) -> [NSData] {
+    static func chunksOfEmptyData(count: Int, length: Int) -> [Data] {
         return (0..<count).map { _ in emptyDataOfLength(length) }
     }
 
-    static func chunksOfData(count count: UInt8, ofLength length: Int) -> [NSData] {
+    static func chunksOfData(count: UInt8, ofLength length: Int) -> [Data] {
         return (0..<count).map { i in
-            return NSData.dataWithRepeatedValue(i, ofLength: length)
+            return Data.dataWithRepeatedValue(i, ofLength: length)
         }
     }
 }

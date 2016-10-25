@@ -10,17 +10,17 @@ import Foundation
 @testable import PHAssetResourceInputStream
 
 extension DataGenerator {
-    func generate() -> AnyGenerator<NSData> {
-        return AnyGenerator(body: { () -> NSData? in
+    func generate() -> AnyIterator<Data> {
+        return AnyIterator(body: { () -> Data? in
             return (try? self.nextChunk()).flatMap({ $0 })
         })
     }
 
-    func sequence() -> AnySequence<NSData> {
+    func sequence() -> AnySequence<Data> {
         return AnySequence(generate())
     }
 
-    func allValues() -> [NSData] {
+    func allValues() -> [Data] {
         return Array(sequence())
     }
 }

@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol DataProducer {
-    func requestData(withCallback callback: NSData -> Void, completion: NSError? -> Void) -> Cancellable
+    func requestData(withCallback callback: (Data) -> Void, completion: (NSError?) -> Void) -> Cancellable
 }

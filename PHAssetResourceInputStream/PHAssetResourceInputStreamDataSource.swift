@@ -12,17 +12,17 @@ import POSInputStreamLibrary
 
 @available(iOS 9.0, *)
 @objc public final class PHAssetResourceInputStreamDataSource: NSObject, POSBlobInputStreamDataSource {
-    private var readOffset: UInt64 = 0
-    private var assetResource: PHAssetResource
-    private var bytesGenerator: BytesGenerator
+    fileprivate var readOffset: UInt64 = 0
+    fileprivate var assetResource: PHAssetResource
+    fileprivate var bytesGenerator: BytesGenerator
 
     public init(assetResource: PHAssetResource) {
         self.assetResource = assetResource
         self.bytesGenerator = bytesGeneratorForAssetResource(assetResource)
     }
 
-    private var _openCompleted = false
-    public dynamic private(set) var openCompleted: Bool {
+    fileprivate var _openCompleted = false
+    public dynamic fileprivate(set) var isOpenCompleted: Bool {
         set {
             _openCompleted = newValue
         }
@@ -32,11 +32,11 @@ import POSInputStreamLibrary
     }
 
     public var hasBytesAvailable: Bool {
-        return openCompleted && !atEnd
+        return isOpenCompleted && !isAtEnd
     }
 
-    private var _atEnd = false
-    public dynamic private(set) var atEnd: Bool {
+    fileprivate var _atEnd = false
+    public dynamic fileprivate(set) var isAtEnd: Bool {
         set {
             _atEnd = newValue
         }
@@ -44,7 +44,7 @@ import POSInputStreamLibrary
             return _atEnd
         }
     }
-    public dynamic private(set) var error: NSError! = nil
+    public dynamic fileprivate(set) var error: NSError! = nil
 
     internal dynamic static func keyPathsForValuesAffectingHasBytesAvailable() -> Set<String> {
         return [
@@ -54,32 +54,32 @@ import POSInputStreamLibrary
     }
 
     public func open() {
-        openCompleted = true
+        isOpenCompleted = true
     }
 
-    public func propertyForKey(key: String!) -> AnyObject! {
-        guard key == NSStreamFileCurrentOffsetKey else {
+    public func property(forKey key: String!) -> AnyObject! {
+        guard key == Stream.PropertyKey.fileCurrentOffsetKey else {
             return nil
         }
 
-        return NSNumber.init(unsignedLongLong: readOffset + bytesGenerator.readOffset)
+        return NSNumber.init(value: readOffset + bytesGenerator.readOffset as UInt64)
     }
 
-    public func setProperty(property: AnyObject!, forKey key: String!) -> Bool {
-        guard let number = property as? NSNumber where key == NSStreamFileCurrentOffsetKey else {
+    public func setProperty(_ property: AnyObject!, forKey key: String!) -> Bool {
+        guard let number = property as? NSNumber , key == Stream.PropertyKey.fileCurrentOffsetKey else {
             return false
         }
 
-        readOffset = number.unsignedLongLongValue
+        readOffset = number.uint64Value
         bytesGenerator = bytesGeneratorForAssetResource(assetResource, fromOffset: readOffset)
         return true
     }
 
-    public func read(buffer: UnsafeMutablePointer<UInt8>, maxLength: UInt) -> Int {
+    public func read(_ buffer: UnsafeMutablePointer<UInt8>, maxLength: UInt) -> Int {
         do {
             let bytesRead = try bytesGenerator.read(buffer, maxLength: Int(maxLength))
             if bytesRead == 0 {
-                atEnd = true
+                isAtEnd = true
             }
             return bytesRead
         } catch let error as NSError {
@@ -88,14 +88,14 @@ import POSInputStreamLibrary
         }
     }
 
-    public func getBuffer(buffer: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>, length bufferLength: UnsafeMutablePointer<UInt>) -> Bool {
+    public func getBuffer(_ buffer: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>, length bufferLength: UnsafeMutablePointer<UInt>) -> Bool {
         return false
     }
 
 }
 
 @available(iOS 9.0, *)
-private func bytesGeneratorForAssetResource(assetResource: PHAssetResource, fromOffset offset: UInt64 = 0) -> BytesGenerator {
+private func bytesGeneratorForAssetResource(_ assetResource: PHAssetResource, fromOffset offset: UInt64 = 0) -> BytesGenerator {
     let dataProducer = PHAssetResourceDataProducer(assetResource: assetResource)
     var dataGenerator: DataGenerator = DataGeneratorFromDataProducer(dataProducer: dataProducer)
     if offset > 0 {

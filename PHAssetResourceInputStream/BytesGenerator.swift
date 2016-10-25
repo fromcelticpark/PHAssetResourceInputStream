@@ -9,17 +9,17 @@
 import Foundation
 
 public final class BytesGenerator {
-    private let dataGenerator: DataGenerator
-    private var chunk: NSData? = nil
-    private var chunkLength: Int = 0
-    private var chunkOffset: Int = 0
-    private(set) var readOffset: UInt64 = 0
+    fileprivate let dataGenerator: DataGenerator
+    fileprivate var chunk: Data? = nil
+    fileprivate var chunkLength: Int = 0
+    fileprivate var chunkOffset: Int = 0
+    fileprivate(set) var readOffset: UInt64 = 0
 
     public init(dataGenerator: DataGenerator) {
         self.dataGenerator = dataGenerator
     }
 
-    public func read(buffer: UnsafeMutablePointer<UInt8>, maxLength len: Int) throws -> Int {
+    public func read(_ buffer: UnsafeMutablePointer<UInt8>, maxLength len: Int) throws -> Int {
         if chunk == nil {
             // refill cache with new chunk
             if try refillCache() == false {
@@ -32,7 +32,7 @@ public final class BytesGenerator {
         assert(readLength > 0)
 
         let range = NSRange(location: chunkOffset, length: readLength)
-        chunk!.getBytes(buffer, range: range)
+        (chunk! as NSData).getBytes(buffer, range: range)
         chunkOffset += readLength
         readOffset += UInt64(readLength)
 
@@ -41,19 +41,19 @@ public final class BytesGenerator {
         return readLength
     }
 
-    private func refillCache() throws -> Bool {
+    fileprivate func refillCache() throws -> Bool {
         guard let newChunk = try dataGenerator.nextChunk() else {
             // finished reading from data generator
             return false
         }
 
-        chunk = newChunk
-        chunkLength = newChunk.length
+        chunk = newChunk as Data
+        chunkLength = newChunk.count
         chunkOffset = 0
         return true
     }
 
-    private func dropCacheIfNeeded() {
+    fileprivate func dropCacheIfNeeded() {
         if chunkOffset == chunkLength {
             chunk = nil
             chunkLength = 0

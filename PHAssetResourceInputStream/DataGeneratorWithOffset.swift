@@ -9,23 +9,23 @@
 import Foundation
 
 public final class DataGeneratorWithOffset: DataGenerator {
-    private let dataGenerator: DataGenerator
-    private let offset: UInt64
-    private var currentOffset: UInt64 = 0
+    fileprivate let dataGenerator: DataGenerator
+    fileprivate let offset: UInt64
+    fileprivate var currentOffset: UInt64 = 0
 
     public init(dataGenerator: DataGenerator, offset: UInt64) {
         self.dataGenerator = dataGenerator
         self.offset = offset
     }
 
-    public func nextChunk() throws -> NSData? {
+    public func nextChunk() throws -> Data? {
         // skip data chunks before offset
         while currentOffset < offset {
             guard let chunk = try dataGenerator.nextChunk() else {
                 return nil
             }
 
-            let chunkLength = UInt64(chunk.length)
+            let chunkLength = UInt64(chunk.count)
             currentOffset += chunkLength
 
             // we just passed farther the offset
@@ -33,7 +33,7 @@ public final class DataGeneratorWithOffset: DataGenerator {
                 let trimmedChunkLength = currentOffset - offset
                 let trimmedChunkStart = chunkLength - trimmedChunkLength
                 let range = NSRange(location: Int(trimmedChunkStart), length: Int(trimmedChunkLength))
-                let trimmedChunk = chunk.subdataWithRange(range)
+                let trimmedChunk = chunk.subdata(with: range)
                 return trimmedChunk
             }
         }
@@ -42,8 +42,8 @@ public final class DataGeneratorWithOffset: DataGenerator {
             return nil
         }
 
-        currentOffset += UInt64(chunk.length)
+        currentOffset += UInt64(chunk.count)
         
-        return chunk
+        return chunk as Data
     }
 }

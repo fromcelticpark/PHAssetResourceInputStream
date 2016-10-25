@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension NSOperationQueue {
-    static func serialQueue() -> NSOperationQueue {
-        let queue = NSOperationQueue()
+extension OperationQueue {
+    static func serialQueue() -> OperationQueue {
+        let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
         return queue
     }

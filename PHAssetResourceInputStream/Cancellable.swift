@@ -13,9 +13,9 @@ public protocol Cancellable {
 }
 
 public final class CancellationToken: Cancellable {
-    private var cancellationClosure: (Void -> Void)
+    fileprivate var cancellationClosure: ((Void) -> Void)
 
-    public init(cancellationClosure: (Void -> Void)) {
+    public init(cancellationClosure: @escaping ((Void) -> Void)) {
         self.cancellationClosure = cancellationClosure
     }
 

@@ -10,11 +10,11 @@ import Foundation
 import Photos
 import POSInputStreamLibrary
 
-extension NSInputStream {
+extension InputStream {
     @available(iOS 9.0, *)
-    public static func inputStreamWithAssetResource(assetResource: PHAssetResource) -> NSInputStream {
+    public static func inputStreamWithAssetResource(_ assetResource: PHAssetResource) -> InputStream {
         let dataSource = PHAssetResourceInputStreamDataSource(assetResource: assetResource)
         let stream = POSBlobInputStream(dataSource: dataSource)
-        return stream
+        return stream!
     }
 }

@@ -20,11 +20,11 @@ class BytesGeneratorTests: XCTestCase {
 
         let data = readAllData(from: bytesGenerator)
 
-        XCTAssertEqual(data, NSData())
+        XCTAssertEqual(data, Data())
     }
 
     func testShouldReadDataFromDataProducerWithSmallChunk() {
-        let data = NSData.emptyDataOfLength(smallChunkLength)
+        let data = Data.emptyDataOfLength(smallChunkLength)
         let dataGenerator = MockDataGenerator(chunks: [data])
         let bytesGenerator = BytesGenerator(dataGenerator: dataGenerator)
 
@@ -34,7 +34,7 @@ class BytesGeneratorTests: XCTestCase {
     }
 
     func testShouldReadDataFromDataProducerWithBigChunk() {
-        let data = NSData.emptyDataOfLength(bigChunkLength)
+        let data = Data.emptyDataOfLength(bigChunkLength)
         let dataGenerator = MockDataGenerator(chunks: [data])
         let bytesGenerator = BytesGenerator(dataGenerator: dataGenerator)
 
@@ -44,7 +44,7 @@ class BytesGeneratorTests: XCTestCase {
     }
 
     func testShouldReadDataFromDataProducerWithMultipleSmallChunks() {
-        let chunks = NSData.chunksOfData(count: 5, ofLength: smallChunkLength)
+        let chunks = Data.chunksOfData(count: 5, ofLength: smallChunkLength)
         let allData = appendAllData(from: chunks)
 
         let dataGenerator = MockDataGenerator(chunks: chunks)
@@ -56,7 +56,7 @@ class BytesGeneratorTests: XCTestCase {
     }
 
     func testShouldReadDataFromDataProducerWithMultipleBigChunks() {
-        let chunks = NSData.chunksOfData(count: 5, ofLength: bigChunkLength)
+        let chunks = Data.chunksOfData(count: 5, ofLength: bigChunkLength)
         let allData = appendAllData(from: chunks)
 
         let dataGenerator = MockDataGenerator(chunks: chunks)
@@ -68,7 +68,7 @@ class BytesGeneratorTests: XCTestCase {
     }
 
     func testShouldReadDataFromDataProducerWithChunksOfReadSize() {
-        let chunks = NSData.chunksOfData(count: 5, ofLength: readLength)
+        let chunks = Data.chunksOfData(count: 5, ofLength: readLength)
         let allData = appendAllData(from: chunks)
 
         let dataGenerator = MockDataGenerator(chunks: chunks)
@@ -80,9 +80,9 @@ class BytesGeneratorTests: XCTestCase {
     }
 
     func testShouldReadDataFromDataProducerWithChunksOfVariousSizes() {
-        let smallChunks = NSData.chunksOfData(count: 2, ofLength: smallChunkLength)
-        let readLengthChunks = NSData.chunksOfData(count: 2, ofLength: readLength)
-        let bigChunks = NSData.chunksOfData(count: 2, ofLength: bigChunkLength)
+        let smallChunks = Data.chunksOfData(count: 2, ofLength: smallChunkLength)
+        let readLengthChunks = Data.chunksOfData(count: 2, ofLength: readLength)
+        let bigChunks = Data.chunksOfData(count: 2, ofLength: bigChunkLength)
         let chunks = smallChunks + readLengthChunks + bigChunks
         let allData = appendAllData(from: chunks)
 
@@ -95,20 +95,20 @@ class BytesGeneratorTests: XCTestCase {
     }
 }
 
-private func readAllData(from bytesGenerator: BytesGenerator) -> NSData {
+private func readAllData(from bytesGenerator: BytesGenerator) -> Data {
     let mutableData = NSMutableData()
-    var buffer = [UInt8](count: readLength, repeatedValue: 0)
+    var buffer = [UInt8](repeating: 0, count: readLength)
     while let readLength = try? bytesGenerator.read(&buffer, maxLength: readLength)
-        where readLength > 0
+        , readLength > 0
     {
-        mutableData.appendBytes(&buffer, length: readLength)
+        mutableData.append(&buffer, length: readLength)
     }
     return mutableData
 }
 
-private func appendAllData(from chunks: [NSData]) -> NSData {
+private func appendAllData(from chunks: [Data]) -> Data {
     return chunks.reduce(NSMutableData()) { (accumulator, data) -> NSMutableData in
-        accumulator.appendData(data)
+        accumulator.append(data)
         return accumulator
-    }
+    } as Data
 }

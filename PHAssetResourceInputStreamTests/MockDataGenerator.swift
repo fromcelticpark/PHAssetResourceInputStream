@@ -10,14 +10,14 @@ import Foundation
 @testable import PHAssetResourceInputStream
 
 class MockDataGenerator: DataGenerator {
-    private let chunks: [NSData]
-    private var index = 0
+    fileprivate let chunks: [Data]
+    fileprivate var index = 0
 
-    init(chunks: [NSData]) {
+    init(chunks: [Data]) {
         self.chunks = chunks
     }
 
-    func nextChunk() -> NSData? {
+    func nextChunk() -> Data? {
         guard index < chunks.count else {
             return nil
         }

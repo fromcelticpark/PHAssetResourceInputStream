@@ -11,7 +11,7 @@ import XCTest
 
 class BoundedBlockingQueueTests: XCTestCase {
 
-    let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
+    let backgroundQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
 
     func testShouldCloseQueue() {
         let queue = BoundedBlockingQueue<Int>()
@@ -65,7 +65,7 @@ class BoundedBlockingQueueTests: XCTestCase {
         checkWriteToBufferedQueueWith(capacity: 100)
     }
 
-    func checkWriteToBufferedQueueWith(capacity capacity: Int) {
+    func checkWriteToBufferedQueueWith(capacity: Int) {
         let count = capacity * 100
         let queue = BoundedBlockingQueue<Int>(capacity)
 
@@ -91,13 +91,13 @@ class BoundedBlockingQueueTests: XCTestCase {
 
 }
 
-private func writeValuesToQueue(queue: BoundedBlockingQueue<Int>, count: Int) {
+private func writeValuesToQueue(_ queue: BoundedBlockingQueue<Int>, count: Int) {
     for i in 0..<count {
         queue.send(i)
     }
 }
 
-private func readAllValuesFromQueue(queue: BoundedBlockingQueue<Int>) -> [Int] {
+private func readAllValuesFromQueue(_ queue: BoundedBlockingQueue<Int>) -> [Int] {
     var result = [Int]()
     while let i = queue.receive() {
         result.append(i)

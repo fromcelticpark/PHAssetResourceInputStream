@@ -9,10 +9,10 @@
 import Foundation
 
 internal class BoundedBlockingQueue<T> {
-    private let capacity: Int
-    private var queue = [T]()
-    private var closed = false
-    private let cond = NSCondition()
+    fileprivate let capacity: Int
+    fileprivate var queue = [T]()
+    fileprivate var closed = false
+    fileprivate let cond = NSCondition()
 
     init(_ capacity: Int = 0){
         self.capacity = capacity
@@ -25,7 +25,7 @@ internal class BoundedBlockingQueue<T> {
         cond.broadcast()
     }
 
-    func send(msg: T) {
+    func send(_ msg: T) {
         cond.lock()
         defer { cond.unlock() }
         if closed {
@@ -43,7 +43,7 @@ internal class BoundedBlockingQueue<T> {
         defer { cond.unlock() }
         while true {
             if queue.count > 0 {
-                let msg = queue.removeAtIndex(0)
+                let msg = queue.remove(at: 0)
                 cond.broadcast()
                 return msg
             }

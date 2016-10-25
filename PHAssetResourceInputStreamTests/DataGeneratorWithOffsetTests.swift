@@ -10,7 +10,7 @@ import XCTest
 import PHAssetResourceInputStream
 
 class DataGeneratorWithOffsetTests: XCTestCase {
-    let chunks = NSData.chunksOfEmptyData(count: 5, length: 10)
+    let chunks = Data.chunksOfEmptyData(count: 5, length: 10)
 
     func testShouldReadFromTheBeginning() {
         let mockDataGenerator = MockDataGenerator(chunks: chunks)
@@ -26,7 +26,7 @@ class DataGeneratorWithOffsetTests: XCTestCase {
         let dataGeneratorWithOffset = DataGeneratorWithOffset(dataGenerator: mockDataGenerator, offset: 5)
 
         let result = dataGeneratorWithOffset.allValues()
-        let expected = [NSData.emptyDataOfLength(5)] + NSData.chunksOfEmptyData(count: 4, length: 10)
+        let expected = [Data.emptyDataOfLength(5)] + Data.chunksOfEmptyData(count: 4, length: 10)
 
         XCTAssertEqual(result, expected)
     }
@@ -36,7 +36,7 @@ class DataGeneratorWithOffsetTests: XCTestCase {
         let dataGeneratorWithOffset = DataGeneratorWithOffset(dataGenerator: mockDataGenerator, offset: 25)
 
         let result = dataGeneratorWithOffset.allValues()
-        let expected = [NSData.emptyDataOfLength(5)] + NSData.chunksOfEmptyData(count: 2, length: 10)
+        let expected = [Data.emptyDataOfLength(5)] + Data.chunksOfEmptyData(count: 2, length: 10)
 
         XCTAssertEqual(result, expected)
     }
@@ -46,7 +46,7 @@ class DataGeneratorWithOffsetTests: XCTestCase {
         let dataGeneratorWithOffset = DataGeneratorWithOffset(dataGenerator: mockDataGenerator, offset: 9)
 
         let result = dataGeneratorWithOffset.allValues()
-        let expected = [NSData.emptyDataOfLength(1)] + NSData.chunksOfEmptyData(count: 4, length: 10)
+        let expected = [Data.emptyDataOfLength(1)] + Data.chunksOfEmptyData(count: 4, length: 10)
 
         XCTAssertEqual(result, expected)
     }
@@ -56,7 +56,7 @@ class DataGeneratorWithOffsetTests: XCTestCase {
         let dataGeneratorWithOffset = DataGeneratorWithOffset(dataGenerator: mockDataGenerator, offset: 10)
 
         let result = dataGeneratorWithOffset.allValues()
-        let expected = NSData.chunksOfEmptyData(count: 4, length: 10)
+        let expected = Data.chunksOfEmptyData(count: 4, length: 10)
 
         XCTAssertEqual(result, expected)
     }

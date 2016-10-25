@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol DataGenerator {
-    func nextChunk() throws -> NSData?
+    func nextChunk() throws -> Data?
 }
