@@ -66,7 +66,7 @@ class DataGeneratorWithOffsetTests: XCTestCase {
         let dataGeneratorWithOffset = DataGeneratorWithOffset(dataGenerator: mockDataGenerator, offset: 50)
 
         let result = dataGeneratorWithOffset.allValues()
-        let expected = []
+        let expected = [Data]()
 
         XCTAssertEqual(result, expected)
     }
@@ -76,7 +76,7 @@ class DataGeneratorWithOffsetTests: XCTestCase {
         let dataGeneratorWithOffset = DataGeneratorWithOffset(dataGenerator: mockDataGenerator, offset: 999)
 
         let result = dataGeneratorWithOffset.allValues()
-        let expected = []
+        let expected = [Data]()
         
         XCTAssertEqual(result, expected)
     }

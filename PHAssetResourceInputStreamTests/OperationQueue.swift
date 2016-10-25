@@ -1,5 +1,5 @@
 //
-//  NSOperationQueue.swift
+//  OperationQueue.swift
 //  PHAssetResourceInputStream
 //
 //  Created by Aleksandr Dvornikov on 24/08/16.

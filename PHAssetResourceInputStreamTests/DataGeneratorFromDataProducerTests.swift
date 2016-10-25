@@ -84,7 +84,7 @@ class DataGeneratorFromDataProducerTests: XCTestCase {
 
 }
 
-private func dataGeneratorWithChunks(_ chunks: [Data], error: NSError? = nil) -> DataGeneratorFromDataProducer {
+private func dataGeneratorWithChunks(_ chunks: [Data], error: Error? = nil) -> DataGeneratorFromDataProducer {
     let dataProducer = MockDataProducer(chunks: chunks, error: error)
     let dataGenerator = DataGeneratorFromDataProducer(dataProducer: dataProducer)
     return dataGenerator

@@ -96,14 +96,14 @@ class BytesGeneratorTests: XCTestCase {
 }
 
 private func readAllData(from bytesGenerator: BytesGenerator) -> Data {
-    let mutableData = NSMutableData()
+    var data = Data()
     var buffer = [UInt8](repeating: 0, count: readLength)
-    while let readLength = try? bytesGenerator.read(&buffer, maxLength: readLength)
+    while let readLength = try? bytesGenerator.read(from: &buffer, maxLength: readLength)
         , readLength > 0
     {
-        mutableData.append(&buffer, length: readLength)
+        data.append(&buffer, count: readLength)
     }
-    return mutableData
+    return data
 }
 
 private func appendAllData(from chunks: [Data]) -> Data {

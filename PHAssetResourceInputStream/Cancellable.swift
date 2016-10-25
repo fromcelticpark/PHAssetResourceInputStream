@@ -13,7 +13,7 @@ public protocol Cancellable {
 }
 
 public final class CancellationToken: Cancellable {
-    fileprivate var cancellationClosure: ((Void) -> Void)
+    private var cancellationClosure: ((Void) -> Void)
 
     public init(cancellationClosure: @escaping ((Void) -> Void)) {
         self.cancellationClosure = cancellationClosure
@@ -23,5 +23,5 @@ public final class CancellationToken: Cancellable {
         cancellationClosure()
     }
 
-    static let empty = CancellationToken.init(cancellationClosure: {})
+    public static let empty = CancellationToken.init(cancellationClosure: {})
 }

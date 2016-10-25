@@ -12,39 +12,24 @@ import POSInputStreamLibrary
 
 @available(iOS 9.0, *)
 @objc public final class PHAssetResourceInputStreamDataSource: NSObject, POSBlobInputStreamDataSource {
-    fileprivate var readOffset: UInt64 = 0
-    fileprivate var assetResource: PHAssetResource
-    fileprivate var bytesGenerator: BytesGenerator
+    private var readOffset: UInt64 = 0
+    private var assetResource: PHAssetResource
+    private var bytesGenerator: BytesGenerator
 
     public init(assetResource: PHAssetResource) {
         self.assetResource = assetResource
         self.bytesGenerator = bytesGeneratorForAssetResource(assetResource)
     }
 
-    fileprivate var _openCompleted = false
-    public dynamic fileprivate(set) var isOpenCompleted: Bool {
-        set {
-            _openCompleted = newValue
-        }
-        @objc(isOpenCompleted) get {
-            return _openCompleted
-        }
-    }
+    public dynamic private(set) var isOpenCompleted = false
 
     public var hasBytesAvailable: Bool {
         return isOpenCompleted && !isAtEnd
     }
 
-    fileprivate var _atEnd = false
-    public dynamic fileprivate(set) var isAtEnd: Bool {
-        set {
-            _atEnd = newValue
-        }
-        @objc(isAtEnd) get {
-            return _atEnd
-        }
-    }
-    public dynamic fileprivate(set) var error: NSError! = nil
+    public dynamic private(set) var isAtEnd = false
+
+    public dynamic private(set) var error: Error! = nil
 
     internal dynamic static func keyPathsForValuesAffectingHasBytesAvailable() -> Set<String> {
         return [
@@ -57,16 +42,16 @@ import POSInputStreamLibrary
         isOpenCompleted = true
     }
 
-    public func property(forKey key: String!) -> AnyObject! {
-        guard key == Stream.PropertyKey.fileCurrentOffsetKey else {
+    public func property(forKey key: String!) -> Any! {
+        guard key == Stream.PropertyKey.fileCurrentOffsetKey.rawValue else {
             return nil
         }
 
         return NSNumber.init(value: readOffset + bytesGenerator.readOffset as UInt64)
     }
 
-    public func setProperty(_ property: AnyObject!, forKey key: String!) -> Bool {
-        guard let number = property as? NSNumber , key == Stream.PropertyKey.fileCurrentOffsetKey else {
+    public func setProperty(_ property: Any!, forKey key: String!) -> Bool {
+        guard let number = property as? NSNumber , key == Stream.PropertyKey.fileCurrentOffsetKey.rawValue else {
             return false
         }
 
@@ -77,18 +62,18 @@ import POSInputStreamLibrary
 
     public func read(_ buffer: UnsafeMutablePointer<UInt8>, maxLength: UInt) -> Int {
         do {
-            let bytesRead = try bytesGenerator.read(buffer, maxLength: Int(maxLength))
+            let bytesRead = try bytesGenerator.read(from: buffer, maxLength: Int(maxLength))
             if bytesRead == 0 {
                 isAtEnd = true
             }
             return bytesRead
-        } catch let error as NSError {
+        } catch let error {
             self.error = error
             return -1
         }
     }
 
-    public func getBuffer(_ buffer: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>, length bufferLength: UnsafeMutablePointer<UInt>) -> Bool {
+    public func getBuffer(_ buffer: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>?>!, length bufferLength: UnsafeMutablePointer<UInt>!) -> Bool {
         return false
     }
 

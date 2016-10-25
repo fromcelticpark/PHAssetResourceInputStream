@@ -10,15 +10,15 @@ import Foundation
 @testable import PHAssetResourceInputStream
 
 class MockDataProducer: DataProducer {
-    fileprivate let chunks: [Data]
-    fileprivate let error: NSError?
-    fileprivate let queue: OperationQueue
-    fileprivate let cancellable: Cancellable
+    private let chunks: [Data]
+    private let error: Error?
+    private let queue: OperationQueue
+    private let cancellable: Cancellable
 
     init(
         queue: OperationQueue = OperationQueue.serialQueue(),
         chunks: [Data],
-        error: NSError? = nil,
+        error: Error? = nil,
         cancellable: Cancellable = CancellationToken.empty)
     {
         self.queue = queue
@@ -27,7 +27,7 @@ class MockDataProducer: DataProducer {
         self.cancellable = cancellable
     }
 
-    func requestData(withCallback callback: (Data) -> Void, completion: (NSError?) -> Void) -> Cancellable {
+    func requestData(withCallback callback: @escaping (Data) -> Void, completion: @escaping (Error?) -> Void) -> Cancellable {
         for chunk in chunks {
             let operation = dataOperation(from: chunk, callback: callback)
             queue.addOperation(operation)
@@ -37,15 +37,15 @@ class MockDataProducer: DataProducer {
         return cancellable
     }
 
-    fileprivate func dataOperation(from data: Data, callback: @escaping (Data) -> Void) -> Operation {
-        return BlockOperation.init(block: {
+    private func dataOperation(from data: Data, callback: @escaping (Data) -> Void) -> Operation {
+        return BlockOperation {
             callback(data)
-        })
+        }
     }
 
-    fileprivate func completionOperation(from error: NSError?, completion: @escaping (NSError?) -> Void) -> Operation {
-        return BlockOperation.init(block: {
+    private func completionOperation(from error: Error?, completion: @escaping (Error?) -> Void) -> Operation {
+        return BlockOperation {
             completion(error)
-        })
+        }
     }
 }

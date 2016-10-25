@@ -1,5 +1,5 @@
 //
-//  NSInputStream+PHAssetResourceInputStream.swift
+//  InputStream+PHAssetResourceInputStream.swift
 //  PHAssetResourceInputStream
 //
 //  Created by Aleksandr Dvornikov on 23/08/16.
@@ -12,7 +12,7 @@ import POSInputStreamLibrary
 
 extension InputStream {
     @available(iOS 9.0, *)
-    public static func inputStreamWithAssetResource(_ assetResource: PHAssetResource) -> InputStream {
+    public static func inputStream(withAssetResource assetResource: PHAssetResource) -> InputStream {
         let dataSource = PHAssetResourceInputStreamDataSource(assetResource: assetResource)
         let stream = POSBlobInputStream(dataSource: dataSource)
         return stream!

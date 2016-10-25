@@ -9,12 +9,12 @@
 import Foundation
 
 internal class BoundedBlockingQueue<T> {
-    fileprivate let capacity: Int
-    fileprivate var queue = [T]()
-    fileprivate var closed = false
-    fileprivate let cond = NSCondition()
+    private let capacity: Int
+    private var queue = [T]()
+    private var closed = false
+    private let cond = NSCondition()
 
-    init(_ capacity: Int = 0){
+    init(capacity: Int = 0){
         self.capacity = capacity
     }
 

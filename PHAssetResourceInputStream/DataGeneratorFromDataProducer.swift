@@ -10,15 +10,15 @@ import Foundation
 import Photos
 
 public final class DataGeneratorFromDataProducer: DataGenerator {
-    fileprivate enum AssetData {
-        case data(Foundation.Data)
-        case error(NSError)
+    private enum AssetData {
+        case data(Data)
+        case error(Error)
     }
 
-    fileprivate let dataProducer: DataProducer
-    fileprivate let queue = BoundedBlockingQueue<AssetData>()
-    fileprivate var opened = false
-    fileprivate var cancellable: Cancellable?
+    private let dataProducer: DataProducer
+    private let queue = BoundedBlockingQueue<AssetData>()
+    private var opened = false
+    private var cancellable: Cancellable?
 
     public init(dataProducer: DataProducer) {
         self.dataProducer = dataProducer
@@ -32,7 +32,7 @@ public final class DataGeneratorFromDataProducer: DataGenerator {
         }
     }
 
-    fileprivate func open() {
+    private func open() {
         cancellable =
             dataProducer.requestData(
                 withCallback: { [queue] data in

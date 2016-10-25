@@ -10,8 +10,8 @@ import Foundation
 @testable import PHAssetResourceInputStream
 
 class MockDataGenerator: DataGenerator {
-    fileprivate let chunks: [Data]
-    fileprivate var index = 0
+    private let chunks: [Data]
+    private var index = 0
 
     init(chunks: [Data]) {
         self.chunks = chunks

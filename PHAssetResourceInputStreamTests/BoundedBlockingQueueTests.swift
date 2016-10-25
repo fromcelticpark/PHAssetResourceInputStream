@@ -11,7 +11,7 @@ import XCTest
 
 class BoundedBlockingQueueTests: XCTestCase {
 
-    let backgroundQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+    let backgroundQueue = DispatchQueue.global(qos: .background)
 
     func testShouldCloseQueue() {
         let queue = BoundedBlockingQueue<Int>()
@@ -28,9 +28,10 @@ class BoundedBlockingQueueTests: XCTestCase {
         let queue = BoundedBlockingQueue<Int>()
         let done = BoundedBlockingQueue<Bool>()
 
-        delay(after:0.5, queue: backgroundQueue) {
+        backgroundQueue.asyncAfter(deadline: DispatchTime.now() + 0.5) { 
             result = readAllValuesFromQueue(queue)
             done.send(true)
+
         }
 
         writeValuesToQueue(queue, count: count)
@@ -44,10 +45,10 @@ class BoundedBlockingQueueTests: XCTestCase {
         let count = 100
         var result = [Int]()
         let expected = Array(0..<count)
-        let queue = BoundedBlockingQueue<Int>(10)
+        let queue = BoundedBlockingQueue<Int>(capacity: 10)
         let done = BoundedBlockingQueue<Bool>()
 
-        delay(after:0.5, queue: backgroundQueue) {
+        backgroundQueue.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             result = readAllValuesFromQueue(queue)
             done.send(true)
         }
@@ -67,12 +68,12 @@ class BoundedBlockingQueueTests: XCTestCase {
 
     func checkWriteToBufferedQueueWith(capacity: Int) {
         let count = capacity * 100
-        let queue = BoundedBlockingQueue<Int>(capacity)
+        let queue = BoundedBlockingQueue<Int>(capacity: capacity)
 
         var readingKickedIn = false
         var numberOfWritesBeforeReadingKickedIn = 0
 
-        delay(after:0.5, queue: backgroundQueue) {
+        backgroundQueue.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             readingKickedIn = true
             readAllValuesFromQueue(queue)
         }
@@ -97,6 +98,7 @@ private func writeValuesToQueue(_ queue: BoundedBlockingQueue<Int>, count: Int) 
     }
 }
 
+@discardableResult
 private func readAllValuesFromQueue(_ queue: BoundedBlockingQueue<Int>) -> [Int] {
     var result = [Int]()
     while let i = queue.receive() {

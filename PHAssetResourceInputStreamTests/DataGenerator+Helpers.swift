@@ -11,9 +11,9 @@ import Foundation
 
 extension DataGenerator {
     func generate() -> AnyIterator<Data> {
-        return AnyIterator(body: { () -> Data? in
-            return (try? self.nextChunk()).flatMap({ $0 })
-        })
+        return AnyIterator {
+            return (try? self.nextChunk()).flatMap { $0 }
+        }
     }
 
     func sequence() -> AnySequence<Data> {
