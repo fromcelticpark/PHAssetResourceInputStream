@@ -1,10 +1,11 @@
 ![Version](https://img.shields.io/cocoapods/v/PHAssetResourceInputStream.svg?style=flat)
 ![Platform](https://img.shields.io/cocoapods/p/PHAssetResourceInputStream.svg?style=flat)
-![Swift](https://img.shields.io/badge/%20in-swift%202.2-orange.svg)
+![Swift](https://img.shields.io/badge/%20in-swift%202.3-orange.svg)
+
 
 ## Description
 
-**PHAssetResourceInputStream** is a library that adds `NSInputStream` support for assets from Photos Framework. It is build on the top of [POSInputStreamLibrary](https://github.com/pavelosipov/POSInputStreamLibrary) and it uses [Safe](https://github.com/tidwall/Safe) under the hood to inverse the producer-like API of `PHAssetResourceManager` and make it consumer-friendly.
+**PHAssetResourceInputStream** is a library that adds `NSInputStream` support for assets from Photos Framework. It is build on the top of [POSInputStreamLibrary](https://github.com/pavelosipov/POSInputStreamLibrary) and it uses [bounded blocking queue](https://en.wikipedia.org/wiki/Producer–consumer_problem) under the hood to inverse the producer-like API of `PHAssetResourceManager` and makes it consumer-friendly.
 
 ## Example
 
