@@ -24,3 +24,8 @@ DerivedData
 
 Carthage
 Pods/
+
+# Gemfile
+Gemfile
+Gemfile.lock
+
