@@ -21,13 +21,29 @@ import POSInputStreamLibrary
         self.bytesGenerator = bytesGeneratorForAssetResource(assetResource)
     }
 
-    public dynamic private(set) var isOpenCompleted = false
+    internal var _isOpenCompleted = false
+    public dynamic private(set) var isOpenCompleted: Bool {
+        get {
+            return _isOpenCompleted
+        }
+        @objc(setOpenCompleted:) set {
+            _isOpenCompleted = newValue
+        }
+    }
+
+    internal var _isAtEnd = false
+    public dynamic private(set) var isAtEnd: Bool {
+        get {
+            return _isAtEnd
+        }
+        @objc(setAtEnd:) set {
+            _isAtEnd = newValue
+        }
+    }
 
     public var hasBytesAvailable: Bool {
         return isOpenCompleted && !isAtEnd
     }
-
-    public dynamic private(set) var isAtEnd = false
 
     public dynamic private(set) var error: Error! = nil
 
