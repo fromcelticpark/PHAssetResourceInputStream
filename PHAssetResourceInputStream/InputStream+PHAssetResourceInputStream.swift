@@ -13,7 +13,8 @@ import POSInputStreamLibrary
 extension InputStream {
     @available(iOS 9.0, *)
     public static func inputStream(withAssetResource assetResource: PHAssetResource) -> InputStream {
-        let dataSource = PHAssetResourceInputStreamDataSource(assetResource: assetResource)
+        let factory = AssetBytesGeneratorFactory(assetResource: assetResource)
+        let dataSource = InputStreamDataSource(bytesGeneratorFactory: factory)
         let stream = POSBlobInputStream(dataSource: dataSource)
         return stream!
     }
