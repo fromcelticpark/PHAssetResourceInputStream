@@ -98,10 +98,10 @@ class BytesGeneratorFromDataGeneratorTests: XCTestCase {
 private func readAllData(from bytesGenerator: BytesGenerator) -> Data {
     var data = Data()
     var buffer = [UInt8](repeating: 0, count: readLength)
-    while let readLength = try? bytesGenerator.read(from: &buffer, maxLength: readLength)
-        , readLength > 0
+    while let dataReadLength = try? bytesGenerator.read(from: &buffer, maxLength: readLength)
+        , dataReadLength > 0
     {
-        data.append(&buffer, count: readLength)
+        data.append(&buffer, count: dataReadLength)
     }
     return data
 }
