@@ -1,5 +1,5 @@
 //
-//  PHAssetResourceInputStreamDataSource.swift
+//  InputStreamDataSource.swift
 //  PHAssetResourceInputStream
 //
 //  Created by Aleksandr Dvornikov on 23/08/16.
@@ -10,15 +10,14 @@ import Foundation
 import Photos
 import POSInputStreamLibrary
 
-@available(iOS 9.0, *)
-@objc public final class PHAssetResourceInputStreamDataSource: NSObject, POSBlobInputStreamDataSource {
+@objc public final class InputStreamDataSource: NSObject, POSBlobInputStreamDataSource {
     private var readOffset: UInt64 = 0
-    private var assetResource: PHAssetResource
     private var bytesGenerator: BytesGenerator
+    private let bytesGeneratorFactory: BytesGeneratorFactory
 
-    public init(assetResource: PHAssetResource) {
-        self.assetResource = assetResource
-        self.bytesGenerator = bytesGeneratorForAssetResource(assetResource)
+    public init(bytesGeneratorFactory: BytesGeneratorFactory) {
+        self.bytesGenerator = bytesGeneratorFactory.buildBytesGenerator(startingFromOffset: 0)
+        self.bytesGeneratorFactory = bytesGeneratorFactory
     }
 
     internal var _isOpenCompleted = false
@@ -63,7 +62,7 @@ import POSInputStreamLibrary
             return nil
         }
 
-        return NSNumber.init(value: readOffset + bytesGenerator.readOffset as UInt64)
+        return NSNumber.init(value: readOffset + bytesGenerator.readOffset)
     }
 
     public func setProperty(_ property: Any!, forKey key: String!) -> Bool {
@@ -72,7 +71,7 @@ import POSInputStreamLibrary
         }
 
         readOffset = number.uint64Value
-        bytesGenerator = bytesGeneratorForAssetResource(assetResource, fromOffset: readOffset)
+        bytesGenerator = bytesGeneratorFactory.buildBytesGenerator(startingFromOffset: readOffset)
         return true
     }
 
@@ -93,15 +92,4 @@ import POSInputStreamLibrary
         return false
     }
 
-}
-
-@available(iOS 9.0, *)
-private func bytesGeneratorForAssetResource(_ assetResource: PHAssetResource, fromOffset offset: UInt64 = 0) -> BytesGenerator {
-    let dataProducer = PHAssetResourceDataProducer(assetResource: assetResource)
-    var dataGenerator: DataGenerator = DataGeneratorFromDataProducer(dataProducer: dataProducer)
-    if offset > 0 {
-        dataGenerator = DataGeneratorWithOffset(dataGenerator: dataGenerator, offset: offset)
-    }
-    let bytesGenerator = BytesGenerator(dataGenerator: dataGenerator)
-    return bytesGenerator
 }

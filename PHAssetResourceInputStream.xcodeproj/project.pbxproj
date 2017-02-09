@@ -13,7 +13,7 @@
 		533DA3FF1D6C7A6100EA9D75 /* DataGeneratorWithOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA3FE1D6C7A6100EA9D75 /* DataGeneratorWithOffset.swift */; };
 		533DA4011D6C7A7400EA9D75 /* BytesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA4001D6C7A7400EA9D75 /* BytesGenerator.swift */; };
 		533DA4031D6C7A8900EA9D75 /* DataGeneratorFromDataProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA4021D6C7A8900EA9D75 /* DataGeneratorFromDataProducer.swift */; };
-		533DA4051D6C7A9C00EA9D75 /* PHAssetResourceInputStreamDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA4041D6C7A9C00EA9D75 /* PHAssetResourceInputStreamDataSource.swift */; };
+		533DA4051D6C7A9C00EA9D75 /* InputStreamDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA4041D6C7A9C00EA9D75 /* InputStreamDataSource.swift */; };
 		533DA4071D6C7AB800EA9D75 /* DataProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA4061D6C7AB800EA9D75 /* DataProducer.swift */; };
 		533DA4091D6C7AE000EA9D75 /* PHAssetResourceDataProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA4081D6C7AE000EA9D75 /* PHAssetResourceDataProducer.swift */; };
 		533DA40B1D6C7AF400EA9D75 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533DA40A1D6C7AF400EA9D75 /* Cancellable.swift */; };
@@ -28,6 +28,8 @@
 		53E4B18C1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B18B1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift */; };
 		53E4B18E1D6CEE7A006C83E2 /* BytesGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B18D1D6CEE7A006C83E2 /* BytesGeneratorTests.swift */; };
 		53E4B1901D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B18F1D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift */; };
+		53F3924A1E4CC9A900467625 /* BytesGeneratorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F392491E4CC9A900467625 /* BytesGeneratorFactory.swift */; };
+		53F3924C1E4CD12900467625 /* AssetBytesGeneratorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3924B1E4CD12900467625 /* AssetBytesGeneratorFactory.swift */; };
 		651CE12F51C4A78A9CB96449 /* Pods_PHAssetResourceInputStreamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE024AFAD82E153702B73AA7 /* Pods_PHAssetResourceInputStreamTests.framework */; };
 		6B8E9C2E0D566B3A9928D6F8 /* Pods_PHAssetResourceInputStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D81BADE3A2CA19E25218FF /* Pods_PHAssetResourceInputStream.framework */; };
 /* End PBXBuildFile section */
@@ -54,7 +56,7 @@
 		533DA3FE1D6C7A6100EA9D75 /* DataGeneratorWithOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGeneratorWithOffset.swift; sourceTree = "<group>"; };
 		533DA4001D6C7A7400EA9D75 /* BytesGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesGenerator.swift; sourceTree = "<group>"; };
 		533DA4021D6C7A8900EA9D75 /* DataGeneratorFromDataProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGeneratorFromDataProducer.swift; sourceTree = "<group>"; };
-		533DA4041D6C7A9C00EA9D75 /* PHAssetResourceInputStreamDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssetResourceInputStreamDataSource.swift; sourceTree = "<group>"; };
+		533DA4041D6C7A9C00EA9D75 /* InputStreamDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputStreamDataSource.swift; sourceTree = "<group>"; };
 		533DA4061D6C7AB800EA9D75 /* DataProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProducer.swift; sourceTree = "<group>"; };
 		533DA4081D6C7AE000EA9D75 /* PHAssetResourceDataProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssetResourceDataProducer.swift; sourceTree = "<group>"; };
 		533DA40A1D6C7AF400EA9D75 /* Cancellable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
@@ -69,6 +71,8 @@
 		53E4B18B1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataGenerator+Helpers.swift"; sourceTree = "<group>"; };
 		53E4B18D1D6CEE7A006C83E2 /* BytesGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesGeneratorTests.swift; sourceTree = "<group>"; };
 		53E4B18F1D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGeneratorFromDataProducerTests.swift; sourceTree = "<group>"; };
+		53F392491E4CC9A900467625 /* BytesGeneratorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesGeneratorFactory.swift; sourceTree = "<group>"; };
+		53F3924B1E4CD12900467625 /* AssetBytesGeneratorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetBytesGeneratorFactory.swift; sourceTree = "<group>"; };
 		B2D81BADE3A2CA19E25218FF /* Pods_PHAssetResourceInputStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PHAssetResourceInputStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD59CEA0E786B2D03C2861D0 /* Pods-PHAssetResourceInputStreamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PHAssetResourceInputStreamTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PHAssetResourceInputStreamTests/Pods-PHAssetResourceInputStreamTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D28AEB830DE30B4E42A6395B /* Pods-PHAssetResourceInputStreamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PHAssetResourceInputStreamTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PHAssetResourceInputStreamTests/Pods-PHAssetResourceInputStreamTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,7 +142,9 @@
 				533DA3FE1D6C7A6100EA9D75 /* DataGeneratorWithOffset.swift */,
 				533DA4081D6C7AE000EA9D75 /* PHAssetResourceDataProducer.swift */,
 				533DA4021D6C7A8900EA9D75 /* DataGeneratorFromDataProducer.swift */,
-				533DA4041D6C7A9C00EA9D75 /* PHAssetResourceInputStreamDataSource.swift */,
+				53F392491E4CC9A900467625 /* BytesGeneratorFactory.swift */,
+				53F3924B1E4CD12900467625 /* AssetBytesGeneratorFactory.swift */,
+				533DA4041D6C7A9C00EA9D75 /* InputStreamDataSource.swift */,
 				533DA40C1D6C7B0700EA9D75 /* InputStream+PHAssetResourceInputStream.swift */,
 				533DA3D71D6C6FE100EA9D75 /* PHAssetResourceInputStream.h */,
 				533DA3D91D6C6FE200EA9D75 /* Info.plist */,
@@ -375,13 +381,15 @@
 			files = (
 				533DA3FF1D6C7A6100EA9D75 /* DataGeneratorWithOffset.swift in Sources */,
 				533DA4071D6C7AB800EA9D75 /* DataProducer.swift in Sources */,
+				53F3924C1E4CD12900467625 /* AssetBytesGeneratorFactory.swift in Sources */,
+				53F3924A1E4CC9A900467625 /* BytesGeneratorFactory.swift in Sources */,
 				5381438E1DBF7117003237A1 /* BoundedBlockingQueue.swift in Sources */,
 				533DA40B1D6C7AF400EA9D75 /* Cancellable.swift in Sources */,
 				533DA4031D6C7A8900EA9D75 /* DataGeneratorFromDataProducer.swift in Sources */,
 				533DA4011D6C7A7400EA9D75 /* BytesGenerator.swift in Sources */,
 				533DA3FD1D6C7A4A00EA9D75 /* DataGenerator.swift in Sources */,
 				533DA4091D6C7AE000EA9D75 /* PHAssetResourceDataProducer.swift in Sources */,
-				533DA4051D6C7A9C00EA9D75 /* PHAssetResourceInputStreamDataSource.swift in Sources */,
+				533DA4051D6C7A9C00EA9D75 /* InputStreamDataSource.swift in Sources */,
 				533DA40D1D6C7B0700EA9D75 /* InputStream+PHAssetResourceInputStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
