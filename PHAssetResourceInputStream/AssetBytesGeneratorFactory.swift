@@ -23,7 +23,7 @@ public final class AssetBytesGeneratorFactory: BytesGeneratorFactory {
         if offset > 0 {
             dataGenerator = DataGeneratorWithOffset(dataGenerator: dataGenerator, offset: offset)
         }
-        let bytesGenerator = BytesGenerator(dataGenerator: dataGenerator)
+        let bytesGenerator = BytesGeneratorFromDataGenerator(dataGenerator: dataGenerator)
         return bytesGenerator
     }
 }
