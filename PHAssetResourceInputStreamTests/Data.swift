@@ -22,4 +22,12 @@ extension Data {
             return Data(repeating: i, count: length)
         }
     }
+
+    static func dataFromChunks(_ chunks: [Data]) -> Data {
+        return chunks.reduce(Data(), { (result, chunk) -> Data in
+            var newBytes = result
+            newBytes.append(chunk)
+            return newBytes
+        })
+    }
 }

@@ -31,6 +31,10 @@
 		53F3924A1E4CC9A900467625 /* BytesGeneratorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F392491E4CC9A900467625 /* BytesGeneratorFactory.swift */; };
 		53F3924C1E4CD12900467625 /* AssetBytesGeneratorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3924B1E4CD12900467625 /* AssetBytesGeneratorFactory.swift */; };
 		53F392541E4D015F00467625 /* BytesGeneratorFromDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F392531E4D015F00467625 /* BytesGeneratorFromDataGenerator.swift */; };
+		53F392561E4D022400467625 /* InputStreamDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F392551E4D022400467625 /* InputStreamDataSourceTests.swift */; };
+		53F392581E4D027400467625 /* BlockBasedBytesGeneratorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F392571E4D027400467625 /* BlockBasedBytesGeneratorFactory.swift */; };
+		53F3925A1E4D187400467625 /* KVOListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F392591E4D187400467625 /* KVOListener.swift */; };
+		53F3925C1E4D1BA200467625 /* MockBytesGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3925B1E4D1BA200467625 /* MockBytesGenerators.swift */; };
 		651CE12F51C4A78A9CB96449 /* Pods_PHAssetResourceInputStreamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE024AFAD82E153702B73AA7 /* Pods_PHAssetResourceInputStreamTests.framework */; };
 		6B8E9C2E0D566B3A9928D6F8 /* Pods_PHAssetResourceInputStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D81BADE3A2CA19E25218FF /* Pods_PHAssetResourceInputStream.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +79,10 @@
 		53F392491E4CC9A900467625 /* BytesGeneratorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesGeneratorFactory.swift; sourceTree = "<group>"; };
 		53F3924B1E4CD12900467625 /* AssetBytesGeneratorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetBytesGeneratorFactory.swift; sourceTree = "<group>"; };
 		53F392531E4D015F00467625 /* BytesGeneratorFromDataGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesGeneratorFromDataGenerator.swift; sourceTree = "<group>"; };
+		53F392551E4D022400467625 /* InputStreamDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputStreamDataSourceTests.swift; sourceTree = "<group>"; };
+		53F392571E4D027400467625 /* BlockBasedBytesGeneratorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockBasedBytesGeneratorFactory.swift; sourceTree = "<group>"; };
+		53F392591E4D187400467625 /* KVOListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVOListener.swift; sourceTree = "<group>"; };
+		53F3925B1E4D1BA200467625 /* MockBytesGenerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockBytesGenerators.swift; sourceTree = "<group>"; };
 		B2D81BADE3A2CA19E25218FF /* Pods_PHAssetResourceInputStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PHAssetResourceInputStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD59CEA0E786B2D03C2861D0 /* Pods-PHAssetResourceInputStreamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PHAssetResourceInputStreamTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PHAssetResourceInputStreamTests/Pods-PHAssetResourceInputStreamTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D28AEB830DE30B4E42A6395B /* Pods-PHAssetResourceInputStreamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PHAssetResourceInputStreamTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PHAssetResourceInputStreamTests/Pods-PHAssetResourceInputStreamTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +171,7 @@
 				53E4B1871D6CED04006C83E2 /* DataGeneratorWithOffsetTests.swift */,
 				53E4B18D1D6CEE7A006C83E2 /* BytesGeneratorFromDataGeneratorTests.swift */,
 				53E4B18F1D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift */,
+				53F392551E4D022400467625 /* InputStreamDataSourceTests.swift */,
 				533DA3E51D6C6FE200EA9D75 /* Info.plist */,
 			);
 			path = PHAssetResourceInputStreamTests;
@@ -173,9 +182,12 @@
 			children = (
 				53E4B1851D6CECBF006C83E2 /* MockDataGenerator.swift */,
 				5394A46D1D6CF6E100417165 /* MockDataProducer.swift */,
+				53F3925B1E4D1BA200467625 /* MockBytesGenerators.swift */,
 				53E4B1891D6CED84006C83E2 /* Data.swift */,
 				5394A46B1D6CF68C00417165 /* OperationQueue.swift */,
 				53E4B18B1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift */,
+				53F392571E4D027400467625 /* BlockBasedBytesGeneratorFactory.swift */,
+				53F392591E4D187400467625 /* KVOListener.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -405,11 +417,15 @@
 				53E4B1881D6CED04006C83E2 /* DataGeneratorWithOffsetTests.swift in Sources */,
 				5394A46E1D6CF6E100417165 /* MockDataProducer.swift in Sources */,
 				5394A46C1D6CF68C00417165 /* OperationQueue.swift in Sources */,
+				53F3925C1E4D1BA200467625 /* MockBytesGenerators.swift in Sources */,
 				53E4B18A1D6CED84006C83E2 /* Data.swift in Sources */,
 				5353582B1DBF72ED008CAAE7 /* BoundedBlockingQueueTests.swift in Sources */,
 				53E4B1861D6CECBF006C83E2 /* MockDataGenerator.swift in Sources */,
+				53F392561E4D022400467625 /* InputStreamDataSourceTests.swift in Sources */,
 				53E4B1901D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift in Sources */,
 				53E4B18E1D6CEE7A006C83E2 /* BytesGeneratorFromDataGeneratorTests.swift in Sources */,
+				53F392581E4D027400467625 /* BlockBasedBytesGeneratorFactory.swift in Sources */,
+				53F3925A1E4D187400467625 /* KVOListener.swift in Sources */,
 				53E4B18C1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
