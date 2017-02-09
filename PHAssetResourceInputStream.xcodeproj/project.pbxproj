@@ -26,10 +26,11 @@
 		53E4B1881D6CED04006C83E2 /* DataGeneratorWithOffsetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B1871D6CED04006C83E2 /* DataGeneratorWithOffsetTests.swift */; };
 		53E4B18A1D6CED84006C83E2 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B1891D6CED84006C83E2 /* Data.swift */; };
 		53E4B18C1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B18B1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift */; };
-		53E4B18E1D6CEE7A006C83E2 /* BytesGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B18D1D6CEE7A006C83E2 /* BytesGeneratorTests.swift */; };
+		53E4B18E1D6CEE7A006C83E2 /* BytesGeneratorFromDataGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B18D1D6CEE7A006C83E2 /* BytesGeneratorFromDataGeneratorTests.swift */; };
 		53E4B1901D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4B18F1D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift */; };
 		53F3924A1E4CC9A900467625 /* BytesGeneratorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F392491E4CC9A900467625 /* BytesGeneratorFactory.swift */; };
 		53F3924C1E4CD12900467625 /* AssetBytesGeneratorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3924B1E4CD12900467625 /* AssetBytesGeneratorFactory.swift */; };
+		53F392541E4D015F00467625 /* BytesGeneratorFromDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F392531E4D015F00467625 /* BytesGeneratorFromDataGenerator.swift */; };
 		651CE12F51C4A78A9CB96449 /* Pods_PHAssetResourceInputStreamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE024AFAD82E153702B73AA7 /* Pods_PHAssetResourceInputStreamTests.framework */; };
 		6B8E9C2E0D566B3A9928D6F8 /* Pods_PHAssetResourceInputStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D81BADE3A2CA19E25218FF /* Pods_PHAssetResourceInputStream.framework */; };
 /* End PBXBuildFile section */
@@ -69,10 +70,11 @@
 		53E4B1871D6CED04006C83E2 /* DataGeneratorWithOffsetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGeneratorWithOffsetTests.swift; sourceTree = "<group>"; };
 		53E4B1891D6CED84006C83E2 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		53E4B18B1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataGenerator+Helpers.swift"; sourceTree = "<group>"; };
-		53E4B18D1D6CEE7A006C83E2 /* BytesGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesGeneratorTests.swift; sourceTree = "<group>"; };
+		53E4B18D1D6CEE7A006C83E2 /* BytesGeneratorFromDataGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesGeneratorFromDataGeneratorTests.swift; sourceTree = "<group>"; };
 		53E4B18F1D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGeneratorFromDataProducerTests.swift; sourceTree = "<group>"; };
 		53F392491E4CC9A900467625 /* BytesGeneratorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesGeneratorFactory.swift; sourceTree = "<group>"; };
 		53F3924B1E4CD12900467625 /* AssetBytesGeneratorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetBytesGeneratorFactory.swift; sourceTree = "<group>"; };
+		53F392531E4D015F00467625 /* BytesGeneratorFromDataGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesGeneratorFromDataGenerator.swift; sourceTree = "<group>"; };
 		B2D81BADE3A2CA19E25218FF /* Pods_PHAssetResourceInputStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PHAssetResourceInputStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD59CEA0E786B2D03C2861D0 /* Pods-PHAssetResourceInputStreamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PHAssetResourceInputStreamTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PHAssetResourceInputStreamTests/Pods-PHAssetResourceInputStreamTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D28AEB830DE30B4E42A6395B /* Pods-PHAssetResourceInputStreamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PHAssetResourceInputStreamTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PHAssetResourceInputStreamTests/Pods-PHAssetResourceInputStreamTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				533DA3FE1D6C7A6100EA9D75 /* DataGeneratorWithOffset.swift */,
 				533DA4081D6C7AE000EA9D75 /* PHAssetResourceDataProducer.swift */,
 				533DA4021D6C7A8900EA9D75 /* DataGeneratorFromDataProducer.swift */,
+				53F392531E4D015F00467625 /* BytesGeneratorFromDataGenerator.swift */,
 				53F392491E4CC9A900467625 /* BytesGeneratorFactory.swift */,
 				53F3924B1E4CD12900467625 /* AssetBytesGeneratorFactory.swift */,
 				533DA4041D6C7A9C00EA9D75 /* InputStreamDataSource.swift */,
@@ -158,7 +161,7 @@
 				53E4B1841D6CECAE006C83E2 /* Helpers */,
 				5353582A1DBF72ED008CAAE7 /* BoundedBlockingQueueTests.swift */,
 				53E4B1871D6CED04006C83E2 /* DataGeneratorWithOffsetTests.swift */,
-				53E4B18D1D6CEE7A006C83E2 /* BytesGeneratorTests.swift */,
+				53E4B18D1D6CEE7A006C83E2 /* BytesGeneratorFromDataGeneratorTests.swift */,
 				53E4B18F1D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift */,
 				533DA3E51D6C6FE200EA9D75 /* Info.plist */,
 			);
@@ -384,6 +387,7 @@
 				53F3924C1E4CD12900467625 /* AssetBytesGeneratorFactory.swift in Sources */,
 				53F3924A1E4CC9A900467625 /* BytesGeneratorFactory.swift in Sources */,
 				5381438E1DBF7117003237A1 /* BoundedBlockingQueue.swift in Sources */,
+				53F392541E4D015F00467625 /* BytesGeneratorFromDataGenerator.swift in Sources */,
 				533DA40B1D6C7AF400EA9D75 /* Cancellable.swift in Sources */,
 				533DA4031D6C7A8900EA9D75 /* DataGeneratorFromDataProducer.swift in Sources */,
 				533DA4011D6C7A7400EA9D75 /* BytesGenerator.swift in Sources */,
@@ -405,7 +409,7 @@
 				5353582B1DBF72ED008CAAE7 /* BoundedBlockingQueueTests.swift in Sources */,
 				53E4B1861D6CECBF006C83E2 /* MockDataGenerator.swift in Sources */,
 				53E4B1901D6CF3E6006C83E2 /* DataGeneratorFromDataProducerTests.swift in Sources */,
-				53E4B18E1D6CEE7A006C83E2 /* BytesGeneratorTests.swift in Sources */,
+				53E4B18E1D6CEE7A006C83E2 /* BytesGeneratorFromDataGeneratorTests.swift in Sources */,
 				53E4B18C1D6CEDFC006C83E2 /* DataGenerator+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

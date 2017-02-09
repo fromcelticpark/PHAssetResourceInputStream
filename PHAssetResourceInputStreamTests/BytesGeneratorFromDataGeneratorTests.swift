@@ -1,5 +1,5 @@
 //
-//  BytesGeneratorTests.swift
+//  BytesGeneratorFromDataGeneratorTests.swift
 //  PHAssetResourceInputStream
 //
 //  Created by Aleksandr Dvornikov on 23/08/16.
@@ -13,10 +13,10 @@ private let readLength = 1024
 private let smallChunkLength = 500
 private let bigChunkLength = 2000
 
-class BytesGeneratorTests: XCTestCase {
+class BytesGeneratorFromDataGeneratorTests: XCTestCase {
     func testShouldReadNoDataFromEmptyDataProducer() {
         let dataGenerator = MockDataGenerator.empty()
-        let bytesGenerator = BytesGenerator(dataGenerator: dataGenerator)
+        let bytesGenerator = BytesGeneratorFromDataGenerator(dataGenerator: dataGenerator)
 
         let data = readAllData(from: bytesGenerator)
 
@@ -26,7 +26,7 @@ class BytesGeneratorTests: XCTestCase {
     func testShouldReadDataFromDataProducerWithSmallChunk() {
         let data = Data.emptyDataOfLength(smallChunkLength)
         let dataGenerator = MockDataGenerator(chunks: [data])
-        let bytesGenerator = BytesGenerator(dataGenerator: dataGenerator)
+        let bytesGenerator = BytesGeneratorFromDataGenerator(dataGenerator: dataGenerator)
 
         let dataThatWasRead = readAllData(from: bytesGenerator)
 
@@ -36,7 +36,7 @@ class BytesGeneratorTests: XCTestCase {
     func testShouldReadDataFromDataProducerWithBigChunk() {
         let data = Data.emptyDataOfLength(bigChunkLength)
         let dataGenerator = MockDataGenerator(chunks: [data])
-        let bytesGenerator = BytesGenerator(dataGenerator: dataGenerator)
+        let bytesGenerator = BytesGeneratorFromDataGenerator(dataGenerator: dataGenerator)
 
         let dataThatWasRead = readAllData(from: bytesGenerator)
 
@@ -48,7 +48,7 @@ class BytesGeneratorTests: XCTestCase {
         let allData = appendAllData(from: chunks)
 
         let dataGenerator = MockDataGenerator(chunks: chunks)
-        let bytesGenerator = BytesGenerator(dataGenerator: dataGenerator)
+        let bytesGenerator = BytesGeneratorFromDataGenerator(dataGenerator: dataGenerator)
 
         let dataThatWasRead = readAllData(from: bytesGenerator)
 
@@ -60,7 +60,7 @@ class BytesGeneratorTests: XCTestCase {
         let allData = appendAllData(from: chunks)
 
         let dataGenerator = MockDataGenerator(chunks: chunks)
-        let bytesGenerator = BytesGenerator(dataGenerator: dataGenerator)
+        let bytesGenerator = BytesGeneratorFromDataGenerator(dataGenerator: dataGenerator)
 
         let dataThatWasRead = readAllData(from: bytesGenerator)
 
@@ -72,7 +72,7 @@ class BytesGeneratorTests: XCTestCase {
         let allData = appendAllData(from: chunks)
 
         let dataGenerator = MockDataGenerator(chunks: chunks)
-        let bytesGenerator = BytesGenerator(dataGenerator: dataGenerator)
+        let bytesGenerator = BytesGeneratorFromDataGenerator(dataGenerator: dataGenerator)
 
         let dataThatWasRead = readAllData(from: bytesGenerator)
 
@@ -87,7 +87,7 @@ class BytesGeneratorTests: XCTestCase {
         let allData = appendAllData(from: chunks)
 
         let dataGenerator = MockDataGenerator(chunks: chunks)
-        let bytesGenerator = BytesGenerator(dataGenerator: dataGenerator)
+        let bytesGenerator = BytesGeneratorFromDataGenerator(dataGenerator: dataGenerator)
 
         let dataThatWasRead = readAllData(from: bytesGenerator)
 
