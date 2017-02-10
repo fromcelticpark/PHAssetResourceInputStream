@@ -23,5 +23,5 @@ public final class CancellationToken: Cancellable {
         cancellationClosure()
     }
 
-    public static let empty = CancellationToken.init(cancellationClosure: {})
+    public static let empty = CancellationToken(cancellationClosure: {})
 }
