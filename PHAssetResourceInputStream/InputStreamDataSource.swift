@@ -62,7 +62,7 @@ import POSInputStreamLibrary
             return nil
         }
 
-        return NSNumber.init(value: readOffset + bytesGenerator.readOffset)
+        return NSNumber(value: readOffset + bytesGenerator.readOffset)
     }
 
     public func setProperty(_ property: Any!, forKey key: String!) -> Bool {

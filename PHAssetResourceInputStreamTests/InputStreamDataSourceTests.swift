@@ -54,7 +54,7 @@ class InputStreamDataSourceTests: XCTestCase {
     }
 
     func testShouldTriggerKVONotificationsOnError() {
-        let error = NSError.init(domain: "domain", code: 0, userInfo: nil)
+        let error = NSError(domain: "domain", code: 0, userInfo: nil)
         let factory = factoryFromBytesGenerator(ErrorBytesGenerator(error: error))
         let dataSource = InputStreamDataSource(bytesGeneratorFactory: factory)
         let errorListener = KVOListener(object: dataSource, keyPath: POSBlobInputStreamDataSourceErrorKeyPath)
