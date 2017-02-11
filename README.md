@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/fromcelticpark/PHAssetResourceInputStream.svg?branch=master)](https://travis-ci.org/fromcelticpark/PHAssetResourceInputStream)
+[![codecov](https://codecov.io/gh/fromcelticpark/PHAssetResourceInputStream/branch/master/graph/badge.svg)](https://codecov.io/gh/fromcelticpark/PHAssetResourceInputStream)
 ![Version](https://img.shields.io/cocoapods/v/PHAssetResourceInputStream.svg?style=flat)
 ![Platform](https://img.shields.io/cocoapods/p/PHAssetResourceInputStream.svg?style=flat)
 ![Swift](https://img.shields.io/badge/%20in-swift%203.0-orange.svg)

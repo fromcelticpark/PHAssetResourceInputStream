@@ -9,5 +9,9 @@ script:
       -workspace PHAssetResourceInputStream.xcworkspace
       -scheme PHAssetResourceInputStream
       -sdk iphonesimulator
+      -enableCodeCoverage YES
       -destination "name=iPhone 7"
       | xcpretty
+
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
