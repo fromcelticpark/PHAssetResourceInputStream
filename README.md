@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/fromcelticpark/PHAssetResourceInputStream.svg?branch=master)](https://travis-ci.org/fromcelticpark/PHAssetResourceInputStream)
 ![Version](https://img.shields.io/cocoapods/v/PHAssetResourceInputStream.svg?style=flat)
 ![Platform](https://img.shields.io/cocoapods/p/PHAssetResourceInputStream.svg?style=flat)
 ![Swift](https://img.shields.io/badge/%20in-swift%203.0-orange.svg)
@@ -27,7 +28,7 @@ Bellow is the example of getting the size from a `PHAssetResource`:
 
 ```swift
 let dataProducer = PHAssetResourceDataProducer(assetResource: assetResource)
-var dataGenerator = DataGeneratorFromDataProducer(dataProducer: dataProducer)
+let dataGenerator = DataGeneratorFromDataProducer(dataProducer: dataProducer)
 
 do {
     var size = 0
@@ -35,15 +36,13 @@ do {
         size += data.length
     }
     print(size)
-} catch {
-    print("error occured")
+} catch let error {
+    print("Error occured: \(error)")
 }
 ```
 
 ## TODO
 - [-] Add an example project
-- [-] Add Travis CI support
-- [-] Add tests for `PHAssetResourceInputStreamDataSource`
 
 ## Installation
 
