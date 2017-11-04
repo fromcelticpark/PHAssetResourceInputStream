@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'PHAssetResourceInputStream'
-  s.version = '0.0.4'
+  s.version = '0.0.5'
   s.license = { :type => 'MIT', :file => 'LICENSE.md' }
   s.summary = 'PHAssetResourceInputStream is an input stream implementation library for assets from Photos Framework'
   s.homepage = 'https://github.com/fromcelticpark/PHAssetResourceInputStream'
