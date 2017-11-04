@@ -46,7 +46,7 @@ import POSInputStreamLibrary
 
     public dynamic private(set) var error: Error! = nil
 
-    internal dynamic static func keyPathsForValuesAffectingHasBytesAvailable() -> Set<String> {
+    @objc internal dynamic static func keyPathsForValuesAffectingHasBytesAvailable() -> Set<String> {
         return [
             POSBlobInputStreamDataSourceOpenCompletedKeyPath,
             POSBlobInputStreamDataSourceAtEndKeyPath
