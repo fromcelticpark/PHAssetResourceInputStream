@@ -1,7 +1,5 @@
 language: objective-c
-# https://github.com/travis-ci/travis-ci/issues/7031
-# Stick with the 8.1 version for now due to the duplicate simulators issue on iOS 10.2
-osx_image: xcode8.1
+osx_image: xcode9.1
 
 script:
   - set -o pipefail
