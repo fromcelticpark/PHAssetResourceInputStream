@@ -1,12 +1,15 @@
 PODS:
+  - Deque (0.0.2)
   - POSInputStreamLibrary (2.3.4)
 
 DEPENDENCIES:
+  - Deque (= 0.0.2)
   - POSInputStreamLibrary (~> 2.3)
 
 SPEC CHECKSUMS:
+  Deque: 1745ad4b7e361402a91b02869ac1d0c64cc9c7fc
   POSInputStreamLibrary: 2375428010f5c3ac5251e2a3a85cda3feec794b2
 
-PODFILE CHECKSUM: afea61e503002f141bc41c567596163b605a2837
+PODFILE CHECKSUM: c0ee773d63f8b65666f84e1fb48f4cd3b409ed1c
 
 COCOAPODS: 1.3.1

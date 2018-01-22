@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import Deque
 
 internal class BoundedBlockingQueue<T> {
     private let capacity: Int
-    private var queue = [T]()
+    private var queue = Deque<T>()
     private var closed = false
     private let cond = NSCondition()
 
